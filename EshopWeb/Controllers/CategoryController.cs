@@ -1,7 +1,6 @@
-using EshopWeb.Data;
-using EshopWeb.Models;
+using Eshop.DataAccess.Data;
+using Eshop.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EshopWeb.Controllers;
 

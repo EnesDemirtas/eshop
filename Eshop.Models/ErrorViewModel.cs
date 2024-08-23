@@ -1,4 +1,4 @@
-namespace EshopWeb.Models;
+namespace Eshop.Models;
 
 public class ErrorViewModel
 {

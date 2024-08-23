@@ -1,7 +1,7 @@
-using EshopWeb.Models;
+using Eshop.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EshopWeb.Data;
+namespace Eshop.DataAccess.Data;
 
 public class ApplicationDbContext : DbContext {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {
