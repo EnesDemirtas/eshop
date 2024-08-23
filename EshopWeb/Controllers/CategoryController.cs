@@ -24,6 +24,7 @@ public class CategoryController : Controller {
         if (ModelState.IsValid) {
             _context.Categories.Add(obj);
             _context.SaveChanges();
+            TempData["success"] = "Category has been created successfully";
             return RedirectToAction("Index");
         }
         return View();
@@ -41,6 +42,7 @@ public class CategoryController : Controller {
         if (ModelState.IsValid) {
             _context.Categories.Update(obj);
             _context.SaveChanges();
+            TempData["success"] = "Category has been updated successfully";
             return RedirectToAction("Index");
         }
         return View();
@@ -59,6 +61,7 @@ public class CategoryController : Controller {
         if (obj == null) return NotFound();
         _context.Categories.Remove(obj);
         _context.SaveChanges();
+        TempData["success"] = "Category has been deleted successfully";
         return RedirectToAction("Index");
     }
 }
