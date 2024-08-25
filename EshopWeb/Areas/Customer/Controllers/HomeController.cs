@@ -4,6 +4,7 @@ using Eshop.Models;
 
 namespace EshopWeb.Controllers;
 
+[Area("Customer")]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
