@@ -1,6 +1,8 @@
 using Eshop.Models;
 using Eshop.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace EshopWeb.Controllers;
 
@@ -20,6 +22,12 @@ public class ProductController : Controller
 
     public IActionResult Create()
     {
+        IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll()
+                                                    .Select(c => new SelectListItem {
+                                                        Text = c.Name,
+                                                        Value = c.Id.ToString()
+                                                    });
+        ViewBag.CategoryList = CategoryList;
         return View();
     }
 
