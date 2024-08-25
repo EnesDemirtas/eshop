@@ -1,4 +1,5 @@
 using Eshop.Models;
+using Eshop.Models.ViewModels;
 using Eshop.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -27,21 +28,30 @@ public class ProductController : Controller
                                                         Text = c.Name,
                                                         Value = c.Id.ToString()
                                                     });
-        ViewBag.CategoryList = CategoryList;
-        return View();
+        ProductVM productVM = new () {
+            Product = new Product(),
+            CategoryList = CategoryList
+        };
+        return View(productVM);
     }
 
     [HttpPost]
-    public IActionResult Create(Product obj)
+    public IActionResult Create(ProductVM obj)
     {
         if (ModelState.IsValid)
         {
-            _unitOfWork.Product.Add(obj);
+            _unitOfWork.Product.Add(obj.Product);
             _unitOfWork.Save();
             TempData["success"] = "Product has been created successfully";
             return RedirectToAction("Index");
+        } else {
+            obj.CategoryList = _unitOfWork.Category.GetAll()
+                                .Select(c => new SelectListItem {
+                                    Text = c.Name,
+                                    Value = c.Id.ToString()
+                                });
+            return View(obj);
         }
-        return View();
     }
 
     public IActionResult Edit(int? id)

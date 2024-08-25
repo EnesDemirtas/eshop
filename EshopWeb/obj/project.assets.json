@@ -1040,7 +1040,10 @@
         },
         "runtime": {
           "bin/placeholder/Eshop.Models.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Eshop.Utility/1.0.0": {
         "type": "project",
