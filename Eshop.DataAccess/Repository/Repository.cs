@@ -18,14 +18,24 @@ public class Repository<T> : IRepository<T> where T : class {
         dbSet.Add(entity);
     }
 
-    public T Get(Expression<Func<T, bool>> filter) {
+    public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null) {
         IQueryable<T> query = dbSet;
         T result = query.FirstOrDefault(filter);
+        if (!string.IsNullOrEmpty(includeProperties)) {
+            foreach (var prop in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries)) {
+                query = query.Include(prop);
+            }
+        }
         return result;
     }
 
-    public IEnumerable<T> GetAll() {
+    public IEnumerable<T> GetAll(string? includeProperties = null) {
         IQueryable<T> query = dbSet;
+        if (!string.IsNullOrEmpty(includeProperties)) {
+            foreach (var prop in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries)) {
+                query = query.Include(prop);
+            }
+        }
         return query.ToList();
     }
 
