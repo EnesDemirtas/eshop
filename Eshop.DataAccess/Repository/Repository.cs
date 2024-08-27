@@ -21,17 +21,18 @@ public class Repository<T> : IRepository<T> where T : class {
 
     public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null) {
         IQueryable<T> query = dbSet;
-        T result = query.FirstOrDefault(filter);
+        if (filter != null) query = query.Where(filter);
         if (!string.IsNullOrEmpty(includeProperties)) {
             foreach (var prop in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries)) {
                 query = query.Include(prop);
             }
         }
-        return result;
+        return query.FirstOrDefault();
     }
 
-    public IEnumerable<T> GetAll(string? includeProperties = null) {
+    public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter, string? includeProperties = null) {
         IQueryable<T> query = dbSet;
+        if (filter != null) query = query.Where(filter);
         if (!string.IsNullOrEmpty(includeProperties)) {
             foreach (var prop in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries)) {
                 query = query.Include(prop);
