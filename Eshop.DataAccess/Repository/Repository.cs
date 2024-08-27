@@ -12,6 +12,7 @@ public class Repository<T> : IRepository<T> where T : class {
     public Repository(ApplicationDbContext context) {
         _context = context;
         this.dbSet = _context.Set<T>();
+        _context.Products.Include(p => p.Category).Include(c => c.CategoryId);
     }
 
     public void Add(T entity) {
