@@ -1,9 +1,9 @@
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using Eshop.Models;
 using Eshop.DataAccess.Repository.IRepository;
+using Eshop.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
-namespace EshopWeb.Controllers;
+namespace EshopWeb.Areas.Customer.Controllers;
 
 [Area("Customer")]
 public class HomeController : Controller

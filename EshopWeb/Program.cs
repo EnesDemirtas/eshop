@@ -1,10 +1,10 @@
 using Eshop.DataAccess.Data;
-using Eshop.DataAccess.Repository.IRepository;
 using Eshop.DataAccess.Repository;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
+using Eshop.DataAccess.Repository.IRepository;
 using Eshop.Utility;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

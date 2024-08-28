@@ -1,13 +1,12 @@
+using Eshop.DataAccess.Repository.IRepository;
 using Eshop.Models;
 using Eshop.Models.ViewModels;
-using Eshop.DataAccess.Repository.IRepository;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Eshop.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace EshopWeb.Controllers;
+namespace EshopWeb.Areas.Admin.Controllers;
 
 [Area("Admin")]
 [Authorize(Roles = StaticDetails.Role_Admin)]
@@ -29,11 +28,13 @@ public class ProductController : Controller
     public IActionResult Upsert(int? id)
     {
         IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll()
-                                                    .Select(c => new SelectListItem {
+                                                    .Select(c => new SelectListItem
+                                                    {
                                                         Text = c.Name,
                                                         Value = c.Id.ToString()
                                                     });
-        ProductVM productVM = new () {
+        ProductVM productVM = new()
+        {
             Product = new Product(),
             CategoryList = CategoryList
         };
@@ -48,34 +49,44 @@ public class ProductController : Controller
         if (ModelState.IsValid)
         {
             string wwwRootPath = _webHostEnvironment.WebRootPath;
-            if (file != null) {
+            if (file != null)
+            {
                 string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
                 string productPath = Path.Combine(wwwRootPath, @"images/product");
 
-                if (!string.IsNullOrEmpty(obj.Product.ImageUrl)) {
+                if (!string.IsNullOrEmpty(obj.Product.ImageUrl))
+                {
                     var oldImagePath = Path.Combine(wwwRootPath, obj.Product.ImageUrl.TrimStart('/'));
-                    if (System.IO.File.Exists(oldImagePath)) {
+                    if (System.IO.File.Exists(oldImagePath))
+                    {
                         System.IO.File.Delete(oldImagePath);
                     }
                 }
 
-                using (var fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create)) {
+                using (var fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create))
+                {
                     file.CopyTo(fileStream);
                 }
 
                 obj.Product.ImageUrl = @"/images/product/" + fileName;
             }
-            if (obj.Product.Id == 0) {
+            if (obj.Product.Id == 0)
+            {
                 _unitOfWork.Product.Add(obj.Product);
-            } else {
+            }
+            else
+            {
                 _unitOfWork.Product.Update(obj.Product);
             }
             _unitOfWork.Save();
             TempData["success"] = "Product has been created successfully";
             return RedirectToAction("Index");
-        } else {
+        }
+        else
+        {
             obj.CategoryList = _unitOfWork.Category.GetAll()
-                                .Select(c => new SelectListItem {
+                                .Select(c => new SelectListItem
+                                {
                                     Text = c.Name,
                                     Value = c.Id.ToString()
                                 });
@@ -86,16 +97,18 @@ public class ProductController : Controller
     #region API CALLS
 
     [HttpGet]
-    public IActionResult GetAll() {
+    public IActionResult GetAll()
+    {
         List<Product> objProductList = _unitOfWork.Product.GetAll(includeProperties: "Category").ToList();
         return Json(new { data = objProductList });
     }
 
     [HttpDelete]
-    public IActionResult Delete(int id) {
+    public IActionResult Delete(int id)
+    {
         var product = _unitOfWork.Product.Get(p => p.Id == id);
         if (product == null) return Json(new { success = false, message = "Error while deleting" });
-        
+
         var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, product.ImageUrl.TrimStart('/'));
         if (System.IO.File.Exists(oldImagePath)) System.IO.File.Delete(oldImagePath);
 

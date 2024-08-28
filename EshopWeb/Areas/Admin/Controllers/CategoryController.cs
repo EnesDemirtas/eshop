@@ -1,10 +1,10 @@
-using Eshop.Models;
 using Eshop.DataAccess.Repository.IRepository;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
+using Eshop.Models;
 using Eshop.Utility;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-namespace EshopWeb.Controllers;
+namespace EshopWeb.Areas.Admin.Controllers;
 
 [Area("Admin")]
 [Authorize(Roles = StaticDetails.Role_Admin)]

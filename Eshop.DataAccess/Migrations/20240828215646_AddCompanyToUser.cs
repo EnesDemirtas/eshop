@@ -2,47 +2,46 @@
 
 #nullable disable
 
-namespace Eshop.DataAccess.Migrations
+namespace Eshop.DataAccess.Migrations;
+
+/// <inheritdoc />
+public partial class AddCompanyToUser : Migration
 {
     /// <inheritdoc />
-    public partial class AddCompanyToUser : Migration
+    protected override void Up(MigrationBuilder migrationBuilder)
     {
-        /// <inheritdoc />
-        protected override void Up(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.AddColumn<int>(
-                name: "CompanyId",
-                table: "AspNetUsers",
-                type: "INTEGER",
-                nullable: true);
+        migrationBuilder.AddColumn<int>(
+            name: "CompanyId",
+            table: "AspNetUsers",
+            type: "INTEGER",
+            nullable: true);
 
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_CompanyId",
-                table: "AspNetUsers",
-                column: "CompanyId");
+        migrationBuilder.CreateIndex(
+            name: "IX_AspNetUsers_CompanyId",
+            table: "AspNetUsers",
+            column: "CompanyId");
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_AspNetUsers_Companies_CompanyId",
-                table: "AspNetUsers",
-                column: "CompanyId",
-                principalTable: "Companies",
-                principalColumn: "Id");
-        }
+        migrationBuilder.AddForeignKey(
+            name: "FK_AspNetUsers_Companies_CompanyId",
+            table: "AspNetUsers",
+            column: "CompanyId",
+            principalTable: "Companies",
+            principalColumn: "Id");
+    }
 
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropForeignKey(
-                name: "FK_AspNetUsers_Companies_CompanyId",
-                table: "AspNetUsers");
+    /// <inheritdoc />
+    protected override void Down(MigrationBuilder migrationBuilder)
+    {
+        migrationBuilder.DropForeignKey(
+            name: "FK_AspNetUsers_Companies_CompanyId",
+            table: "AspNetUsers");
 
-            migrationBuilder.DropIndex(
-                name: "IX_AspNetUsers_CompanyId",
-                table: "AspNetUsers");
+        migrationBuilder.DropIndex(
+            name: "IX_AspNetUsers_CompanyId",
+            table: "AspNetUsers");
 
-            migrationBuilder.DropColumn(
-                name: "CompanyId",
-                table: "AspNetUsers");
-        }
+        migrationBuilder.DropColumn(
+            name: "CompanyId",
+            table: "AspNetUsers");
     }
 }

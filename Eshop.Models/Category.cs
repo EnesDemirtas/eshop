@@ -3,14 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Eshop.Models;
 
-public class Category {
+public class Category
+{
     [Key]
-    public int Id {get; set;}
+    public int Id { get; set; }
     [Required]
     [MaxLength(50)]
     [DisplayName("Category Name")]
-    public string Name {get; set;}
+    public string Name { get; set; }
     [DisplayName("Display Order")]
     [Range(1, 100, ErrorMessage = "Display Order must be between 1-100")]
-    public int DisplayOrder {get; set;}
+    public int DisplayOrder { get; set; }
 }

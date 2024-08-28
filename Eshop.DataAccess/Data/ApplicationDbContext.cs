@@ -38,7 +38,8 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
                 State = "IL",
                 PhoneNumber = "6669990000"
             },
-            new Company {
+            new Company
+            {
                 Id = 2,
                 Name = "Vivid Books",
                 StreetAddress = "123 Vivid St",
@@ -47,7 +48,8 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
                 State = "IL",
                 PhoneNumber = "7779990000"
             },
-            new Company {
+            new Company
+            {
                 Id = 3,
                 Name = "Readers Club",
                 StreetAddress = "123 Main St",

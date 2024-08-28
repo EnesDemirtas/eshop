@@ -1,13 +1,10 @@
-using Eshop.Models;
-using Eshop.Models.ViewModels;
 using Eshop.DataAccess.Repository.IRepository;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Eshop.Models;
 using Eshop.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-namespace EshopWeb.Controllers;
+namespace EshopWeb.Areas.Admin.Controllers;
 
 [Area("Admin")]
 [Authorize(Roles = StaticDetails.Role_Admin)]
@@ -29,7 +26,8 @@ public class CompanyController : Controller
         if (id == null || id == 0)
         {
             return View(new Company());
-        } else
+        }
+        else
         {
             Company companyObj = _unitOfWork.Company.Get(c => c.Id == id);
             return View(companyObj);
@@ -41,15 +39,20 @@ public class CompanyController : Controller
     {
         if (ModelState.IsValid)
         {
-            if (companyObj.Id == 0) {
+            if (companyObj.Id == 0)
+            {
                 _unitOfWork.Company.Add(companyObj);
-            } else {
+            }
+            else
+            {
                 _unitOfWork.Company.Update(companyObj);
             }
             _unitOfWork.Save();
             TempData["success"] = "Company has been created successfully";
             return RedirectToAction("Index");
-        } else {
+        }
+        else
+        {
             return View(companyObj);
         }
     }
@@ -57,13 +60,15 @@ public class CompanyController : Controller
     #region API CALLS
 
     [HttpGet]
-    public IActionResult GetAll() {
+    public IActionResult GetAll()
+    {
         List<Company> objCompanyList = _unitOfWork.Company.GetAll().ToList();
         return Json(new { data = objCompanyList });
     }
 
     [HttpDelete]
-    public IActionResult Delete(int id) {
+    public IActionResult Delete(int id)
+    {
         var Company = _unitOfWork.Company.Get(p => p.Id == id);
         if (Company == null) return Json(new { success = false, message = "Error while deleting" });
 
