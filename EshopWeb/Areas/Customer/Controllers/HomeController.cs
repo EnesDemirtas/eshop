@@ -1,7 +1,9 @@
 using Eshop.DataAccess.Repository.IRepository;
 using Eshop.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace EshopWeb.Areas.Customer.Controllers;
 
@@ -25,8 +27,40 @@ public class HomeController : Controller
 
     public IActionResult Details(int id)
     {
-        Product product = _unitOfWork.Product.Get(p => p.Id == id, includeProperties: "Category");
-        return View(product);
+        ShoppingCart cart = new()
+        {
+            Product = _unitOfWork.Product.Get(p => p.Id == id, includeProperties: "Category"),
+            Count = 1,
+            ProductId = id
+        };
+        return View(cart);
+    }
+
+    [HttpPost]
+    [Authorize]
+    public IActionResult Details(ShoppingCart cart)
+    {
+        var claimsIdentity = (ClaimsIdentity)User.Identity;
+        var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+        cart.ApplicationUserId = userId;
+
+        ShoppingCart cartFromDb = _unitOfWork.ShoppingCart.
+            Get(sc => sc.ApplicationUserId == userId
+                && sc.ProductId == cart.ProductId);
+
+        if (cartFromDb != null)
+        {
+            cartFromDb.Count += cart.Count;
+            _unitOfWork.ShoppingCart.Update(cartFromDb);
+        }
+        else
+        {
+            _unitOfWork.ShoppingCart.Add(cart);
+        }
+        TempData["success"] = "Cart updated successfully";
+        _unitOfWork.Save();
+
+        return RedirectToAction(nameof(Index));
     }
 
     public IActionResult Privacy()
