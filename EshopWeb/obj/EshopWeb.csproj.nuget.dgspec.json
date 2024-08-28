@@ -1,33 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "/home/enesd/projs/eshop/EshopWeb/EshopWeb.csproj": {}
+    "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\EshopWeb\\EshopWeb.csproj": {}
   },
   "projects": {
-    "/home/enesd/projs/eshop/Eshop.DataAccess/Eshop.DataAccess.csproj": {
+    "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.DataAccess\\Eshop.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/enesd/projs/eshop/Eshop.DataAccess/Eshop.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.DataAccess\\Eshop.DataAccess.csproj",
         "projectName": "Eshop.DataAccess",
-        "projectPath": "/home/enesd/projs/eshop/Eshop.DataAccess/Eshop.DataAccess.csproj",
-        "packagesPath": "/home/enesd/.nuget/packages/",
-        "outputPath": "/home/enesd/projs/eshop/Eshop.DataAccess/obj/",
+        "projectPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.DataAccess\\Eshop.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\enesd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/enesd/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\enesd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/enesd/projs/eshop/Eshop.Models/Eshop.Models.csproj": {
-                "projectPath": "/home/enesd/projs/eshop/Eshop.Models/Eshop.Models.csproj"
+              "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Models\\Eshop.Models.csproj": {
+                "projectPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Models\\Eshop.Models.csproj"
               }
             }
           }
@@ -36,12 +39,21 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.8, )"
@@ -77,26 +89,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/enesd/projs/eshop/Eshop.Models/Eshop.Models.csproj": {
+    "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Models\\Eshop.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/enesd/projs/eshop/Eshop.Models/Eshop.Models.csproj",
+        "projectUniqueName": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Models\\Eshop.Models.csproj",
         "projectName": "Eshop.Models",
-        "projectPath": "/home/enesd/projs/eshop/Eshop.Models/Eshop.Models.csproj",
-        "packagesPath": "/home/enesd/.nuget/packages/",
-        "outputPath": "/home/enesd/projs/eshop/Eshop.Models/obj/",
+        "projectPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Models\\Eshop.Models.csproj",
+        "packagesPath": "C:\\Users\\enesd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/enesd/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\enesd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -109,6 +124,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -133,26 +153,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/enesd/projs/eshop/Eshop.Utility/Eshop.Utility.csproj": {
+    "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Utility\\Eshop.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/enesd/projs/eshop/Eshop.Utility/Eshop.Utility.csproj",
+        "projectUniqueName": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Utility\\Eshop.Utility.csproj",
         "projectName": "Eshop.Utility",
-        "projectPath": "/home/enesd/projs/eshop/Eshop.Utility/Eshop.Utility.csproj",
-        "packagesPath": "/home/enesd/.nuget/packages/",
-        "outputPath": "/home/enesd/projs/eshop/Eshop.Utility/obj/",
+        "projectPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Utility\\Eshop.Utility.csproj",
+        "packagesPath": "C:\\Users\\enesd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Utility\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/enesd/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\enesd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -165,6 +188,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -186,40 +214,43 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/enesd/projs/eshop/EshopWeb/EshopWeb.csproj": {
+    "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\EshopWeb\\EshopWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/enesd/projs/eshop/EshopWeb/EshopWeb.csproj",
+        "projectUniqueName": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\EshopWeb\\EshopWeb.csproj",
         "projectName": "EshopWeb",
-        "projectPath": "/home/enesd/projs/eshop/EshopWeb/EshopWeb.csproj",
-        "packagesPath": "/home/enesd/.nuget/packages/",
-        "outputPath": "/home/enesd/projs/eshop/EshopWeb/obj/",
+        "projectPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\EshopWeb\\EshopWeb.csproj",
+        "packagesPath": "C:\\Users\\enesd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\EshopWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/enesd/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\enesd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/enesd/projs/eshop/Eshop.DataAccess/Eshop.DataAccess.csproj": {
-                "projectPath": "/home/enesd/projs/eshop/Eshop.DataAccess/Eshop.DataAccess.csproj"
+              "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.DataAccess\\Eshop.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.DataAccess\\Eshop.DataAccess.csproj"
               },
-              "/home/enesd/projs/eshop/Eshop.Models/Eshop.Models.csproj": {
-                "projectPath": "/home/enesd/projs/eshop/Eshop.Models/Eshop.Models.csproj"
+              "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Models\\Eshop.Models.csproj": {
+                "projectPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Models\\Eshop.Models.csproj"
               },
-              "/home/enesd/projs/eshop/Eshop.Utility/Eshop.Utility.csproj": {
-                "projectPath": "/home/enesd/projs/eshop/Eshop.Utility/Eshop.Utility.csproj"
+              "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Utility\\Eshop.Utility.csproj": {
+                "projectPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Utility\\Eshop.Utility.csproj"
               }
             }
           }
@@ -228,17 +259,48 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.4, )"
             }
           },
           "imports": [
@@ -260,7 +322,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
