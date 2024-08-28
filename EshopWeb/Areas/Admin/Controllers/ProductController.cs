@@ -4,10 +4,13 @@ using Eshop.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Eshop.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EshopWeb.Controllers;
 
 [Area("Admin")]
+[Authorize(Roles = StaticDetails.Role_Admin)]
 public class ProductController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;

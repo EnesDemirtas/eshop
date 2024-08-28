@@ -1,10 +1,13 @@
 using Eshop.Models;
 using Eshop.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Eshop.Utility;
 
 namespace EshopWeb.Controllers;
 
 [Area("Admin")]
+[Authorize(Roles = StaticDetails.Role_Admin)]
 public class CategoryController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
