@@ -98,7 +98,7 @@ public class CartController : Controller
 		}
 		else
 		{
-			ShoppingCartVM.OrderHeader.PaymentStatus = StaticDetails.PaymentStatusApprovedForDelayedPayment;
+			ShoppingCartVM.OrderHeader.PaymentStatus = StaticDetails.PaymentStatusDelayedPayment;
 			ShoppingCartVM.OrderHeader.OrderStatus = StaticDetails.StatusApproved;
 		}
 
@@ -161,7 +161,7 @@ public class CartController : Controller
 	public IActionResult OrderConfirmation(int id)
 	{
 		OrderHeader orderHeader = _unitOfWork.OrderHeader.Get(o => o.Id == id, includeProperties: "ApplicationUser");
-		if (orderHeader.PaymentStatus != StaticDetails.PaymentStatusApprovedForDelayedPayment)
+		if (orderHeader.PaymentStatus != StaticDetails.PaymentStatusDelayedPayment)
 		{
 			var service = new SessionService();
 			Session session = service.Get(orderHeader.SessionId);
