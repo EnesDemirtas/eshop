@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kSpE+AINFzU=",
+  "dgSpecHash": "0Pd7ujvdfUE=",
   "success": true,
   "projectFilePath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\EshopWeb\\EshopWeb.csproj",
   "expectedPackageFiles": [
@@ -139,6 +139,7 @@
     "C:\\Users\\enesd\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\enesd\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.6\\sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\enesd\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.6\\sqlitepclraw.provider.e_sqlite3.2.1.6.nupkg.sha512",
+    "C:\\Users\\enesd\\.nuget\\packages\\stripe.net\\45.10.0\\stripe.net.45.10.0.nupkg.sha512",
     "C:\\Users\\enesd\\.nuget\\packages\\system.codedom\\5.0.0\\system.codedom.5.0.0.nupkg.sha512",
     "C:\\Users\\enesd\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",
     "C:\\Users\\enesd\\.nuget\\packages\\system.composition\\7.0.0\\system.composition.7.0.0.nupkg.sha512",
