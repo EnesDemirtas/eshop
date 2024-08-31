@@ -202,8 +202,14 @@ public class RegisterModel : PageModel
 				}
 				else
 				{
-					await _signInManager.SignInAsync(user, isPersistent: false);
-					return LocalRedirect(returnUrl);
+					if (User.IsInRole(StaticDetails.Role_Admin) || User.IsInRole(StaticDetails.Role_Employee))
+					{
+						TempData["Success"] = "New user created successfully";
+					} else
+					{
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                    }
+                    return LocalRedirect(returnUrl);
 				}
 			}
 			foreach (var error in result.Errors)
