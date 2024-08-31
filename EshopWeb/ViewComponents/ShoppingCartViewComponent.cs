@@ -18,7 +18,7 @@ public class ShoppingCartViewComponent : ViewComponent
         var claimsIdentity = (ClaimsIdentity)User.Identity;
         var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-        if (claim.Value != null)
+        if (claim != null)
         {
             if (HttpContext.Session.GetInt32(StaticDetails.SessionCart) == null)
             {
