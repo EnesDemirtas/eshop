@@ -3111,6 +3111,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Eshop.Models": "1.0.0",
+          "Eshop.Utility": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.8",

@@ -31,6 +31,9 @@
             "projectReferences": {
               "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Models\\Eshop.Models.csproj": {
                 "projectPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Models\\Eshop.Models.csproj"
+              },
+              "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Utility\\Eshop.Utility.csproj": {
+                "projectPath": "C:\\Users\\enesd\\source\\repos\\EnesDemirtas\\eshop\\Eshop.Utility\\Eshop.Utility.csproj"
               }
             }
           }

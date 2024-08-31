@@ -1,4 +1,5 @@
 using Eshop.DataAccess.Data;
+using Eshop.DataAccess.DbInitializer;
 using Eshop.DataAccess.Repository;
 using Eshop.DataAccess.Repository.IRepository;
 using Eshop.Utility;
@@ -40,6 +41,7 @@ builder.Services.AddSession(options =>
 	options.Cookie.IsEssential = true;
 });
 
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
@@ -63,6 +65,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseSession();
+SeedDatabase();
 app.MapRazorPages();
 
 app.MapControllerRoute(
@@ -70,3 +73,12 @@ app.MapControllerRoute(
 	pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+void SeedDatabase()
+{
+	using (var scope = app.Services.CreateScope())
+	{
+		var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+		dbInitializer.Initialize();
+	}
+}
