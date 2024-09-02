@@ -146,10 +146,20 @@ public class ProductController : Controller
 		var product = _unitOfWork.Product.Get(p => p.Id == id);
 		if (product == null) return Json(new { success = false, message = "Error while deleting" });
 
-		//var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, product.ImageUrl.TrimStart('/'));
-		//if (System.IO.File.Exists(oldImagePath)) System.IO.File.Delete(oldImagePath);
+        string productPath = @"images\products\product-" + id;
+        string finalPath = Path.Combine(_webHostEnvironment.WebRootPath, productPath);
 
-		_unitOfWork.Product.Remove(product);
+        if (Directory.Exists(finalPath))
+        {
+			string[] filePaths = Directory.GetFiles(finalPath);
+			foreach (string filePath in filePaths)
+			{
+				System.IO.File.Delete(filePath);
+			}
+            Directory.Delete(finalPath);
+        }
+
+        _unitOfWork.Product.Remove(product);
 		_unitOfWork.Save();
 
 		return Json(new { success = true, message = "Delete successful" });
