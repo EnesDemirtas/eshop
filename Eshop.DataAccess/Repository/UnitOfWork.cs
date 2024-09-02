@@ -13,8 +13,9 @@ public class UnitOfWork : IUnitOfWork
 	public IApplicationUserRepository ApplicationUser { get; private set; }
 	public IOrderHeaderRepository OrderHeader { get; private set; }
 	public IOrderDetailRepository OrderDetail { get; private set; }
+	public IProductImageRepository ProductImage { get; private set; }
 
-	public UnitOfWork(ApplicationDbContext context)
+    public UnitOfWork(ApplicationDbContext context)
 	{
 		_context = context;
 		Category = new CategoryRepository(_context);
@@ -24,6 +25,7 @@ public class UnitOfWork : IUnitOfWork
 		ApplicationUser = new ApplicationUserRepository(_context);
 		OrderHeader = new OrderHeaderRepository(_context);
 		OrderDetail = new OrderDetailRepository(_context);
+		ProductImage = new ProductImageRepository(_context);
 	}
 
 	public void Save()
